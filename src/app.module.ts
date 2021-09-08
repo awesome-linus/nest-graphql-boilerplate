@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { Resolver, Query } from '@nestjs/graphql';
+import { RecipesModule } from './recipes/recipes.module';
 
 @Resolver()
 export class FooResolver {
@@ -18,6 +19,7 @@ export class FooResolver {
       playground: true,
       autoSchemaFile: 'schema.graphql',
     }),
+    RecipesModule,
   ],
   controllers: [AppController],
   providers: [AppService, FooResolver],
