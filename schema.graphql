@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Recipe {
+  id: ID!
+  title: String!
+}
+
 type Query {
   sayHello: String!
+  recipes: [Recipe!]!
 }
