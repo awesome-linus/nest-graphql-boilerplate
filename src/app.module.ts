@@ -4,6 +4,9 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { Resolver, Query } from '@nestjs/graphql';
 import { RecipesModule } from './recipes/recipes.module';
+import { UsersService } from './users/users.service';
+import { UsersController } from './users/users.controller';
+import { UsersModule } from './users/users.module';
 
 @Resolver()
 export class FooResolver {
@@ -20,8 +23,9 @@ export class FooResolver {
       autoSchemaFile: 'schema.graphql',
     }),
     RecipesModule,
+    UsersModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, FooResolver],
+  controllers: [AppController, UsersController],
+  providers: [AppService, FooResolver, UsersService],
 })
 export class AppModule {}
