@@ -7,6 +7,7 @@ import { UsersService } from './users/users.service';
 import { UsersController } from './users/users.controller';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './users/users.entity.ts';
 
 @Resolver()
 export class FooResolver {
@@ -28,8 +29,8 @@ export class FooResolver {
       port: 3306,
       username: 'root',
       password: '',
-      database: 'database',
-      entities: [],
+      database: 'code_first_sample2',
+      entities: [User],
       synchronize: true,
     }),
     UsersModule,
