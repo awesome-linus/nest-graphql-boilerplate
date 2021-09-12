@@ -6,7 +6,7 @@ export class User {
   id: number;
 
   @Column({ length: 16 })
-  screenName: string;
+  name: string;
 
   @Column({ length: 128 })
   password: string;
