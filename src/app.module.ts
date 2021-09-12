@@ -2,20 +2,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
-import { Resolver, Query } from '@nestjs/graphql';
 import { UsersService } from './users/users.service';
 import { UsersController } from './users/users.controller';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './users/users.entity.ts';
-
-@Resolver()
-export class FooResolver {
-  @Query(() => String)
-  sayHello(): string {
-    return 'Hello World!';
-  }
-}
+import { User } from './users/users.entity';
 
 @Module({
   imports: [
@@ -36,6 +27,6 @@ export class FooResolver {
     UsersModule,
   ],
   controllers: [AppController, UsersController],
-  providers: [AppService, FooResolver, UsersService],
+  providers: [AppService, UsersService],
 })
 export class AppModule {}
